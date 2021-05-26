@@ -1,0 +1,3 @@
+[submodule "gst_calculator"]
+	path = gst_calculator
+	url = https://github.com/jaythamke/submodule-py.git

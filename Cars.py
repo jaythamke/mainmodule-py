@@ -1,3 +1,7 @@
+import sys
+sys.path.append("gst_calculator")
+import gst_calculator
+
 class Car:
 
     car_rates = {"bmw": 50000, "tesla": 65000, "audi": 40000, "opel":30000, "toyota": 35000, "mercedes": 45000}
@@ -9,7 +13,10 @@ class Car:
     @property
     def Price(self):
         if self.brand in Car.car_rates:
+            if self.year < 2016:
                 return Car.car_rates[self.brand]
+            else:
+                return gst_calculator.Calculate_GST(Car.car_rates[self.brand], 3.5) 
 
         return -125
 
