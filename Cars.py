@@ -1,7 +1,4 @@
-import sys
-sys.path.append("submods/gst_calculator")
-import gst_calculator as gst_calc
-
+from submods.gst_calculator import gst_calculator as gst_calc
 class Car:
 
     car_rates = {"bmw": 50000, "tesla": 65000, "audi": 40000, "opel":30000, "toyota": 35000, "mercedes": 45000}
