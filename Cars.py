@@ -1,6 +1,6 @@
 import sys
-sys.path.append("gst_calculator")
-import gst_calculator
+sys.path.append("submods/gst_calculator")
+import gst_calculator as gst_calc
 
 class Car:
 
@@ -14,16 +14,20 @@ class Car:
     def Price(self):
         if self.brand in Car.car_rates:
             if self.year < 2016:
-                return Car.car_rates[self.brand]
+                return float(Car.car_rates[self.brand])
             else:
-                return gst_calculator.Calculate_GST(Car.car_rates[self.brand], 3.5) 
+                return gst_calc.Calculate_GST(Car.car_rates[self.brand], 3.5) 
 
         return -125
 
 if __name__ == "__main__":
-    #  car exists
+    # car exists
     bmw = Car("BMW", 2020)
     print(bmw.Price)
 
-    #  car does not exist
+    # car does not exist
     print(Car("omni", 2013).Price)
+
+    # car exists before 2016
+    bmw = Car("Tesla", 2015)
+    print(bmw.Price)
